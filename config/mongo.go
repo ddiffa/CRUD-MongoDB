@@ -5,15 +5,15 @@ import (
 	"os"
 )
 
-func GetMongoDB()(*mgo.Database, error){
+func GetMongoDB() (*mgo.Database, error) {
 	host := os.Getenv("MONGO_HOST")
 	dbName := os.Getenv("MONGO_DB_NAME")
 
-	session,err:=mgo.Dial(host)
-	if err != nil{
-		return nil,err
+	session, err := mgo.Dial(host)
+	if err != nil {
+		return nil, err
 	}
 
-	db:= session.DB(dbName)
-	return db,nil
+	db := session.DB(dbName)
+	return db, nil
 }
